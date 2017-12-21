@@ -5,7 +5,7 @@ export default AppStyles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: '#F5FCFF',
+        backgroundColor: '#dbe1e4',
     },
     button: {
         padding: 10,

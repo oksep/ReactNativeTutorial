@@ -1,97 +1,78 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
+import React from 'react';
+import {Button, Text, View} from 'react-native';
+import {StackNavigator} from 'react-navigation';
 
-import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, TouchableOpacity, View, Image} from 'react-native';
+import LifecycleScreen from './screens/LifecycleScreen';
+import ImageScreen from './screens/ImageScreen';
+import FlexBoxScreen from './screens/FlexBoxScreen'
+import AnimationScreen from './screens/AnimationScreen'
+import NetworkScreen from "./screens/NetworkScreen";
+import NativeModuleScreen from './screens/NativeModuleScreen';
+import ListViewScreen from './screens/ListViewScreen';
 
-import AppStyles from './common/styles';
-import {multiply, sum} from "./util/calculator";
-import ColorView from './widget/ColorView';
+import AppStyles from './common/styles'
 
-const instructions = Platform.select({
-    ios: 'Press Cmd+R to reload,\n' +
-    'Cmd+D or shake for dev menu',
-    android: 'Double tap R on your keyboard to reload,\n' +
-    'Shake or press menu button for dev menu',
-});
+const HomeScreen = ({navigation}) => (
+    <View style={AppStyles.container}>
+        <Button onPress={() => navigation.navigate('FlexBox')} title="flexbox"/>
+        <Button onPress={() => navigation.navigate('Lifecycle')} title="lifecycle"/>
+        <Button onPress={() => navigation.navigate('Image')} title="Image"/>
+        <Button onPress={() => navigation.navigate('Animation')} title="Animation"/>
+        <Button onPress={() => navigation.navigate('ListView')} title="ListView"/>
+        <Button onPress={() => navigation.navigate('Network')} title="Network"/>
+        <Button onPress={() => navigation.navigate('NativeModule')} title="NativeModule"/>
+    </View>
+);
 
-const config = Platform.select({
-    ios: require('./common/config.ios'),
-    android: require('./common/config.android')
-}).default;
-
-export default class App extends Component {
-
-    constructor(props) {
-        super(props)
-    }
-
-    componentWillMount() {
-
-    }
-
-    componentDidMount() {
-
-    }
-
-    componentWillReceiveProps() {
-
-    }
-
-    componentDidUpdate() {
-
-    }
-
-    componentWillUnMount() {
-
-    }
-
-    componentDidUnMount() {
-
-    }
-
-    render() {
-        let pic = {
-            uri: 'https://upload.wikimedia.org/wikipedia/commons/d/de/Bananavarieties.jpg'
-        };
-        return (
-            <View style={AppStyles.container}>
-                <Image source={pic} style={{width: 193, height: 110}} />
-                <Text style={styles.instructions}>
-                    {instructions}
-                </Text>
-                <TouchableOpacity style={AppStyles.button} onPress={() => {
-                    sum(3, 4, (value) => {
-                        window.alert(value)
-                    })
-                }}>
-                    <Text>3 + 4 = ?</Text>
-                </TouchableOpacity>
-
-                <TouchableOpacity style={AppStyles.button} onPress={() => {
-                    multiply(3, 4).then((value) => {
-                        window.alert(value)
-                    });
-                    console.warn(config)
-                }}>
-                    <Text>3 x 4 = ?</Text>
-                </TouchableOpacity>
-
-                <ColorView style={{width: 30, height: 30}} color='#0088DD'/>
-                <ColorView style={{width: 30, height: 30}} color='#DD0088'/>
-
-            </View>
-        );
-    }
-}
-
-const styles = StyleSheet.create({
-    instructions: {
-        textAlign: 'center',
-        color: '#333333',
-        marginBottom: 5,
+const App = StackNavigator({
+    Home: {
+        screen: HomeScreen,
+        navigationOptions: {
+            headerTitle: 'Home',
+        },
     },
+    FlexBox: {
+        screen: FlexBoxScreen,
+        navigationOptions: {
+            headerTitle: 'FlexBox',
+        }
+    },
+    Lifecycle: {
+        screen: LifecycleScreen,
+        navigationOptions: {
+            headerTitle: 'Lifecycle',
+        },
+    },
+    Image: {
+        screen: ImageScreen,
+        navigationOptions: {
+            headerTitle: 'Image',
+        },
+    },
+    Animation: {
+        screen: AnimationScreen,
+        navigationOptions: {
+            headerTitle: 'Animation',
+        },
+    },
+    Network: {
+        screen: NetworkScreen,
+        navigationOptions: {
+            headerTitle: 'Network',
+        },
+    },
+    ListView: {
+        screen: ListViewScreen,
+        navigationOptions: {
+            headerTitle: 'ListView',
+        }
+    },
+    NativeModule: {
+        screen: NativeModuleScreen,
+        navigationOptions: {
+            headerTitle: 'NativeModule',
+        }
+    }
 });
+
+export default App;
