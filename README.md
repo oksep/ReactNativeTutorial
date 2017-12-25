@@ -238,7 +238,7 @@ class ChildComponent extends Component{
 
 ### Lifecycle
 
-![](media/15138721832230.jpg)
+![](./art/15138721832230.jpg)
 
 
 
@@ -269,7 +269,7 @@ componentWillUnmount()
 
 ### Style & FlexBox
 
-![](media/15138754176654.png)
+![](./art/15138754176654.png)
 
 ## 组件使用
 
@@ -291,7 +291,7 @@ Packager 会打包所有的图片并且依据屏幕精度提供对应的资源�
 ```
 
 [ATS issue](https://segmentfault.com/a/1190000002933776)
-![](media/15138869293237.jpg)
+![](./art/15138869293237.jpg)
 
 
 ### ListView
@@ -354,7 +354,7 @@ async getUserName() {
 
 ## NativeBridge
 
-![](media/15138857931917.jpg)
+![](./art/15138857931917.jpg)
 
 
 ## 打包
@@ -367,11 +367,11 @@ async getUserName() {
 react-native bundle --entry-file index.js --platform ios --dev false --bundle-output release_ios/main.jsbundle --assets-dest release_ios/
 ```
 
-![](media/15138868113330.jpg)
+![](./art/15138868113330.jpg)
 
 
 2.将 **assets** 与 **main.jsbundle** 添加到项目中
-![](media/15138870589984.jpg)
+![](./art/15138870589984.jpg)
 
 3.修改 **AppDelegate.m**，让 React Native 去使用我们刚才导入的 **jsbundle**
 
@@ -443,7 +443,7 @@ react-native bundle --entry-file index.js --platform android --dev false --bundl
 - 3.使用 **google-diff-match-patch** 对比两个文件，并生成差异补丁文件。
 - 4.App 下载补丁文件，再使用 **google-diff-match-patch** 和 assets 目录下的初始版本合并，生成新的 **bundle** 文件。
 
-![](media/15138880360088.jpg)
+![](./art/15138880360088.jpg)
 
 
 
