@@ -62,7 +62,7 @@ react-native run-android
 
 ### How it works 
 
-![](media/15135035648483.jpg)
+![](./art/15135035648483.jpg)
 
 
 ## ES6 标准
